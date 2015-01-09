@@ -1,0 +1,12 @@
+{
+  "name": "site-blog",
+  "author": "Brandon L. Clark",
+  "description": "A blog package for the site-template project.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "mongoose": "~3.8.17"
+  }
+}
