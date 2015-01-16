@@ -7,10 +7,10 @@ var BlogSchema = mongo.Schema({
     description: {type: String,  lowercase: true, required: true, sparse: true, unique:true},
     tags:        {type: String},
     image:       {type: String},
-    written:     {type: Date,    default: Date.now},
-    edits:       {last:    {type: Date},
-    	          history: {type: mongo.Schema.Types.ObjectId,
-                            ref:  'Comment'}},
+    written:     {type: Date},
+    edit:        {last: {type:   Date},
+    	          id:   {type:   mongo.Schema.Types.ObjectId,
+                         ref:    'Blog'}},
     active:      {type: Boolean, default: true}
 });
 
@@ -19,21 +19,14 @@ BlogSchema.methods.getData = function(){
   	  id:            this._id,
 	  author:        this.author,
 	  type:          this.type,
-	  active:        this.active,
+	  written:       this.written,
+	  edit:          this.edit,
+      tags:          this.tags,
 	  article:{
 	    title:       this.title,
 	    description: this.description,
-	    written:     this.written,
-	    edited:      this.edits.last,
-	    tags:        this.tags,
-	    image:       this.image}
-	};
-};
-
-BlogSchema.methods.getEdits = function(){
-	return {
-  	  id:            this._id,
-	  edits:         this.edits.history
+	    image:       this.image,
+	    active:      this.active}
 	};
 };
 
