@@ -37,7 +37,7 @@ module.exports.create = function(blogObj, cb){
 module.exports.read = function(id, cb){
 	console.log('site-blog', id);
 	db.open();
-	R({_id: id}, function(err, data){
+	R.find({_id: id}, function(err, data){
 	  db.close();
 	  if(err){return cb(err, null);}
 	
@@ -52,7 +52,7 @@ module.exports.update = function(blogObj, cb){
 	  db.close();
 	  if(err){return cb(err, null);}
 	  
-	  R({_id:data.id}, function(err, blog){
+	  R.find({_id:data.id}, function(err, blog){
 		  if(err){return cb(err, null);}
 		  
 		  return cb(null, blog); 

@@ -4,10 +4,10 @@ var Comment= require('./comment');
 module.exports.blog    = Blog;
 module.exports.comment = Comment;
 
-module.exports = function(search, cb){
+module.exports.find = function(search, cb){
 	if(search){
 		// Read blog and comments.
-		Blog(search, function(err, blog){
+		Blog.search(search, function(err, blog){
 			if(err){return cb(err, null);}
 			
 			var blogId = blog.edit.id ? blog.edit.id : blog.id;

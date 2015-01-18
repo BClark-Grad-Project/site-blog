@@ -1,16 +1,5 @@
 var Blog = require('./../models/blog');
 
-module.exports = function(blogObj, cb){
-	Blog
-		.findOne(blogObj)
-		.exec(function(err, data){
-			if(err){return cb(err, null);}
-			if(!data){return cb('!No blog found', null);}
-			
-			return cb(null, data.getData());
-		});	
-};
-
 module.exports.top = function(count, type, cb){
 	Blog
 		.find({active:true, type:type})
@@ -44,5 +33,16 @@ module.exports.recent = function(count, type, cb){
 			}
 			
 			return cb(null, blogs);
+		});	
+};
+
+module.exports.search = function(search, cb){
+	Blog
+		.findOne(search)
+		.exec(function(err, data){
+			if(err){return cb(err, null);}
+			if(!data){return cb('!No blog found', null);}
+			
+			return cb(null, data.getData());
 		});	
 };
