@@ -39,8 +39,8 @@ module.exports = function(blogObj, cb){
 	    tags:        tags,
 	    image:       image,
 	    written:     written,
-	    notice:     {visits:    visits,
-	                 favorites: favorites},
+	    visits:      visits,
+	    favorites:   favorites,
 	    edit:        edit
 	});	
 	

@@ -8,8 +8,8 @@ var BlogSchema = mongo.Schema({
     tags:        {type: String},
     image:       {type: String},
     written:     {type: Date},
-    notice:      {favorites:     {type: Number},
-                  visits:        {type: Number}},
+    favorites:   {type: Number},
+    visits:      {type: Number},
     edit:        {last:          {type: Date},
      	          id:            {type: mongo.Schema.Types.ObjectId,
                           ref:    'Blog'}},
@@ -22,8 +22,11 @@ BlogSchema.methods.getData = function(){
 	  author:        this.author,
 	  type:          this.type,
 	  written:       this.written,
-	  edit:          this.edit,
       tags:          this.tags,
+	  edit:          this.edit,
+	  notice:{       
+		visits:      this.visits,
+		favorites:   this.favorites},
 	  article:{
 	    title:       this.title,
 	    description: this.description,

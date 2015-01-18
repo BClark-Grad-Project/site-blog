@@ -70,3 +70,23 @@ module.exports.remove = function(id, cb){
 	  return cb(null, 'Article Deactivated')
 	});
 };
+
+module.exports.top = function(count, type, cb){
+	console.log('site-blog', 'top ' + count + ' ' + type + ' articles');
+	db.open();
+	R.blog.top(count, type, function(err, data){
+		db.close();
+		if(err){return cb(err, null);}
+		return cb(null, data);
+	});
+};
+
+module.exports.recent = function(count, type, cb){
+	console.log('site-blog', 'recent ' + count + ' ' + type + ' articles');
+	db.open();
+	R.blog.recent(count, type, function(err, data){
+		db.close();
+		if(err){return cb(err, null);}
+		return cb(null, data);
+	});
+};
