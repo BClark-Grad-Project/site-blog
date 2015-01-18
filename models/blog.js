@@ -8,9 +8,11 @@ var BlogSchema = mongo.Schema({
     tags:        {type: String},
     image:       {type: String},
     written:     {type: Date},
-    edit:        {last: {type:   Date},
-    	          id:   {type:   mongo.Schema.Types.ObjectId,
-                         ref:    'Blog'}},
+    notice:      {favorites:     {type: Number},
+                  visits:        {type: Number}},
+    edit:        {last:          {type: Date},
+     	          id:            {type: mongo.Schema.Types.ObjectId,
+                          ref:    'Blog'}},
     active:      {type: Boolean, default: true}
 });
 

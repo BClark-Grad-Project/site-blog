@@ -14,9 +14,11 @@ module.exports = function(blogObj, cb){
     var type        = blogObj.type;
     var title       = blogObj.article.title;
     var description = blogObj.article.description;
-    var tags        = blogObj.tags            ? blogObj.tags    : undefined;
-    var image       = blogObj.article.images  ? blogObj.image   : undefined;
-    var written     = blogObj.written         ? blogObj.written : new Date();
+    var tags        = blogObj.tags             ? blogObj.tags    : undefined;
+    var image       = blogObj.article.images   ? blogObj.image   : undefined;
+    var written     = blogObj.written          ? blogObj.written : new Date();
+    var visits      = blogObj.notice.visits    ? blogObj.notice.visits    : 0;
+    var favorites   = blogObj.notice.favorites ? blogObj.notice.favorites : 0;
     
     // If blog is being updated
   	var edit        = {};
@@ -36,6 +38,8 @@ module.exports = function(blogObj, cb){
 	    tags:        tags,
 	    image:       image,
 	    written:     written,
+	    notice:     {visits:    visits,
+	                 favorites: favorites},
 	    edit:        edit
 	});	
 	
