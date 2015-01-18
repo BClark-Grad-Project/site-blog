@@ -14,18 +14,25 @@ module.exports.create = function(blogObj, cb){
 	  if(err){return cb(err, null);}
 	  
 	  // If creating a blog entry because of an edit deactivate the last entry.
-	  if(blogObj.id && blogObj.article){
-		  U({_id:blogObj.id}, {active:false}, function(fail, sucess){
-			  if(fail){return cb(fail, null);}
-			  R.comment({blog: blog.edit.id}, function(err, comments){
-				  db.close();
-				  if(err){return cb(err, null);}
-				  if(comments){
-					  data.comment = comments;
-				  }
-				  return cb(null, data); 
+	  if(blogObj.id){
+		  console.log('site-blog', 'if blog.id');
+		  if(blogObj.article){
+			  U({_id:blogObj.id}, {active:false}, function(fail, sucess){
+				  console.log('site-blog', 'update old entry');
+				  if(fail){return cb(fail, null);}
+				  R.comment({blog: blog.edit.id}, function(err, comments){
+					  db.close();
+					  if(err){return cb(err, null);}
+					  if(comments){
+						  data.comment = comments;
+					  }
+					  return cb(null, data); 
+				  });
 			  });
-		  });
+		  } else {
+			  db.close();
+			  return cb(null, data); 
+		  }
 	  } else {
 		  db.close();
 		  return cb(null, data); 
