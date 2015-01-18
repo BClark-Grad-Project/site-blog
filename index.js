@@ -14,7 +14,7 @@ module.exports.create = function(blogObj, cb){
 	  if(err){return cb(err, null);}
 	  
 	  // If creating a blog entry because of an edit deactivate the last entry.
-	  if(blogObj.hasOwnProperty('id')){
+	  if(blogObj.hasOwnProperty('id') && blogObj.hasOwnProperty('article')){
 		  console.log('site-blog', 'has id');
 		  U({_id:blogObj.id}, {active:false}, function(fail, sucess){
 			  if(fail){return cb(fail, null);}

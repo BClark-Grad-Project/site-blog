@@ -16,20 +16,21 @@ module.exports = function(blogObj, cb){
     var description = blogObj.article.description;
     var tags        = blogObj.tags             ? blogObj.tags    : undefined;
     var image       = blogObj.article.images   ? blogObj.image   : undefined;
+  	var edit        = blogObj.edit             ? blogObj.edit    : undefined;
     var written     = blogObj.written          ? blogObj.written : new Date();
     var visits      = blogObj.notice.visits    ? blogObj.notice.visits    : 0;
     var favorites   = blogObj.notice.favorites ? blogObj.notice.favorites : 0;
     
     // If blog is being updated
-  	var edit        = {};
-  	var lastEdit    = blogObj.edit.id ? blogObj.edit.id : undefined; 
-  	edit.last       = blogObj.id      ? new Date()      : undefined;
-  	if(lastEdit){  		
-  		edit.id     = lastEdit;
-  	} else {
-  		edit.id     = blogObj.id      ? blogObj.id      : undefined;
-  	}
-    
+    if(blogObj.edit){
+	  	var lastEdit    = blogObj.edit.id ? blogObj.edit.id : undefined; 
+	  	edit.last       = blogObj.id      ? new Date()      : undefined;
+	  	if(lastEdit){  		
+	  		edit.id     = lastEdit;
+	  	} else {
+	  		edit.id     = blogObj.id      ? blogObj.id      : undefined;
+	  	}
+    }
 	var blog = new Blog({
 	    author:      author,
 	    type:        type,
