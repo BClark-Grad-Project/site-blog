@@ -18,9 +18,11 @@ module.exports.create = function(blogObj, cb){
 		  console.log('site-blog', 'has id');
 		  U({_id:blogObj.id}, {active:false}, function(fail, sucess){
 			  if(fail){return cb(fail, null);}
+			  
 			  R.comment({blog: blog.edit.id}, function(err, comments){
 				  db.close();
 				  if(err){return cb(err, null);}
+				  
 				  if(comments){
 					  data.comment = comments;
 				  }

@@ -5,7 +5,7 @@ module.exports = function(commentObj, cb){
     if(!commentObj.comment.author){      return cb('!No Comment Author', null);}
     if(!commentObj.comment.description){ return cb('!No Comment Content', null);}
 
-    var blog        = commentObj.id;
+    var blog        = commentObj.comment.blog;
     var author      = commentObj.comment.author;
     var description = commentObj.comment.description;
     
