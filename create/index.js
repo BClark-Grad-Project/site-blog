@@ -13,9 +13,11 @@ module.exports = function(blogObj, cb){
 		});
 	} else if(blogObj.comment){
 		// Add Comment to Blog
+		var blog = {id:blogObj.comment.blog};
 		Comment(blogObj, function(err, comment){
 			if(err){return cb(err, null);}
-			return cb(null, comment);
+			blog.comment = comment;
+			return cb(null, blog);
 		});
 	} else {
 		return cb('!No CREATE Item', null);
