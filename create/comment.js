@@ -9,7 +9,7 @@ module.exports = function(commentObj, cb){
     var author      = commentObj.comment.author;
     var description = commentObj.comment.description;
     
-    var written     = commentObj.coment.written ? commentObj.written : new Date();
+    var written     = commentObj.comment.written ? commentObj.written : new Date();
     
 	var comment = new Comment({
 	    blog:        blog,
