@@ -20,17 +20,13 @@ var dbConnection = function(){
 	return url;
 };
 
-module.exports.open = function(){
-	var url = dbConnection();
-	mongo.createConnection(url);	
-	conn.blog = mongo.model('Blog', Blog);
-	conn.comment = mongo.model('Comment', Comment);
-	mongoMessage();
-};
 
 module.exports.close = function(){
 	return mongo.disconnect();
 };
 
-module.exports.blog = conn.blog;
-module.exports.comment = conn.comment;
+var url = dbConnection();
+conn = mongo.createConnection(url);	
+mongoMessage();
+module.exports.blog = conn.model('Blog', BlogSchema);
+module.exports.comment = conn.model('Comment', CommentSchema);;
