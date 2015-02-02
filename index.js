@@ -7,8 +7,6 @@ var R = require('./read');
 var U = require('./update');
 var D = require('./delete');
 
-db.open();
-
 module.exports.create = function(blogObj, cb){
 	console.log('site-blog', blogObj);
 	C(blogObj, function(err, data){

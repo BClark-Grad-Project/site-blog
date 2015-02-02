@@ -28,5 +28,5 @@ module.exports.close = function(){
 var url = dbConnection();
 conn = mongo.createConnection(url);	
 mongoMessage();
-module.exports.blog = conn.model('Blog', BlogSchema);
-module.exports.comment = conn.model('Comment', CommentSchema);;
+module.exports.blog = conn.model('Blog', Blog);
+module.exports.comment = conn.model('Comment', Comment);
