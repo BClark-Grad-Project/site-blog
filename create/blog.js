@@ -1,4 +1,4 @@
-var Blog = require('./../models/blog');
+var Blog = require('./../config').blog;
 
 module.exports = function(blogObj, cb){
     if(!blogObj.author){ return cb('!No Blog Author', null);}

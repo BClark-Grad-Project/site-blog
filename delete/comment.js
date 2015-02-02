@@ -1,1 +1,1 @@
-var Comment = require('./../models/comment');
+var Comment = require('./../config').comment;

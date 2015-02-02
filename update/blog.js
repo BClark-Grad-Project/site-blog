@@ -1,4 +1,4 @@
-var Blog = require('./../models/blog');
+var Blog = require('./../config').blog;
 
 module.exports = function(search, updateData, cb){	
 	Blog.findOneAndUpdate(search, updateData, {}, function(err, blog){

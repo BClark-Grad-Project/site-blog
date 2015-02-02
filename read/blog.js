@@ -1,4 +1,4 @@
-var Blog = require('./../models/blog');
+var Blog = require('./../config').blog;
 
 module.exports.top = function(count, type, cb){
 	Blog

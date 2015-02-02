@@ -1,1 +1,1 @@
-var Blog = require('./../models/blog');
+var Blog = require('./../config').blog;

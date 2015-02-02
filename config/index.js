@@ -1,5 +1,8 @@
 var mongo = require('mongoose');
 var config = require('./conf');
+var Blog = require('./../models/blog');
+var Comment = require('./../models/comment');
+var conn = {};
 
 var mongoMessage = function(){
 	var db = mongo.connection;
@@ -19,10 +22,15 @@ var dbConnection = function(){
 
 module.exports.open = function(){
 	var url = dbConnection();
-	mongo.connect(url);	
+	mongo.createConnection(url);	
+	conn.blog = mongo.model('Blog', Blog.getSchema());
+	conn.comment = mongo.model('Comment', Comment.getSchema());
 	mongoMessage();
 };
 
 module.exports.close = function(){
 	return mongo.disconnect();
 };
+
+module.exports.blog = conn.blog;
+module.exports.comment = conn.comment;

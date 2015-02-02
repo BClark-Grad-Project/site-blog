@@ -1,4 +1,4 @@
-var Comment = require('./../models/comment');
+var Comment = require('./../config').comment;
 
 module.exports = function(search, updateData, cb){	
 	Comment.findOneAndUpdate(search, updateData, {}, function(err, comment){

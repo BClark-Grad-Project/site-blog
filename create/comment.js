@@ -1,4 +1,4 @@
-var Comment = require('./../models/comment');
+var Comment = require('./../config').comment;
 
 module.exports = function(commentObj, cb){
     if(!commentObj.id){                  return cb('!No Blog to add Comment', null);}
