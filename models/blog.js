@@ -13,7 +13,7 @@ var BlogSchema = mongo.Schema({
     edit:        {last:          {type: Date},
      	          id:            {type: mongo.Schema.Types.ObjectId,
                           ref:    'Blog'}},
-    active:      {type: Boolean, default: true}
+    active:      {type: Boolean, 'default': true}
 });
 
 BlogSchema.methods.getData = function(){
@@ -35,4 +35,4 @@ BlogSchema.methods.getData = function(){
 	};
 };
 
-module.exports = mongo.model('Blog', BlogSchema);
+module.exports = BlogSchema;

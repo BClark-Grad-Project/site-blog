@@ -23,8 +23,8 @@ var dbConnection = function(){
 module.exports.open = function(){
 	var url = dbConnection();
 	mongo.createConnection(url);	
-	conn.blog = mongo.model('Blog', Blog.getSchema());
-	conn.comment = mongo.model('Comment', Comment.getSchema());
+	conn.blog = mongo.model('Blog', Blog);
+	conn.comment = mongo.model('Comment', Comment);
 	mongoMessage();
 };
 

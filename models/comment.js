@@ -6,7 +6,7 @@ var CommentSchema = mongo.Schema({
     author:     {type: String, required: true},
     description:{type: String, required: true},
     written:    {type: Date},
-    active:     {type: String, default: true}
+    active:     {type: String, 'default': true}
 });
 
 CommentSchema.methods.getData = function(){
@@ -19,4 +19,4 @@ CommentSchema.methods.getData = function(){
 	};
 };
 
-module.exports = mongo.model('Comment', CommentSchema);
+module.exports = CommentSchema;
