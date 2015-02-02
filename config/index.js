@@ -1,7 +1,7 @@
 var mongo = require('mongoose');
 var config = require('./conf');
-var Blog = require('./../models/blog');
-var Comment = require('./../models/comment');
+var Blog = require('./models/blog');
+var Comment = require('./models/comment');
 var conn = {};
 
 var mongoMessage = function(){
