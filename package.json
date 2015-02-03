@@ -7,7 +7,6 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "mongoose": "~3.8.17",
-    "aws-sdk": "~2.1.8"
+    "mongoose": "~3.8.17"
   }
 }
