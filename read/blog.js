@@ -3,7 +3,7 @@ var Blog = require('./../config').blog;
 module.exports.top = function(count, type, cb){
 	Blog
 		.find({active:true, type:type})
-		.sort({'notice.visits': -1})
+		.sort({'visits': -1})
 		.limit(count)
 		.exec(function(err, data){
 			if(err){return cb(err, null);}
