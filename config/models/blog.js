@@ -3,8 +3,8 @@ var mongo  = require('mongoose');
 var BlogSchema = mongo.Schema({
     author:      {type: String,  required: true},
     type:        {type: String,  required: true},
-    title:       {type: String,  lowercase: true, required: true, sparse: true, unique:true},
-    description: {type: String,  lowercase: true, required: true, sparse: true, unique:true},
+    title:       {type: String,  required: true, unique:true},
+    description: {type: String,  required: true, unique:true},
     tags:        {type: String},
     image:       {type: String},
     written:     {type: Date},
